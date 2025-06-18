@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>NFC App</title>
-<link rel="modulepreload" href="/nfc_app-f8f4eaae52f8e712.js" crossorigin="anonymous" integrity="sha384-m22zhGL7fjEcpYtI2BT60T7sNrtV4s74FKvTz5ezzJLEBNnCfig9Y8pake+H/07j"><link rel="modulepreload" href="/snippets/nfc_app-3592b038163808ed/nfc.js" crossorigin="anonymous" integrity="sha384-yQUXXkgXhlw5+z2TlRSF9vKAQ6DreqaRPwTcpRLXr+S1FcqHL9qxJpZwoZdRaGGv"><link rel="preload" href="/nfc_app-f8f4eaae52f8e712_bg.wasm" crossorigin="anonymous" integrity="sha384-1bKJc3MVNopKexLG4KYfyWm5zJNma1d7xlsAU+1eemtYguYLmdY8sx7LHyqUWrFL" as="fetch" type="application/wasm"></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="modulepreload" href="/nfc_app-63b16bf5cd8ead98.js" crossorigin="anonymous" integrity="sha384-L8tq/prstowmMycqdU6YKZQj3PyMfnZzIRqMF53O9J5GrolLKMs29zE5IgqZ0fsB"><link rel="modulepreload" href="/snippets/nfc_app-3592b038163808ed/nfc.js" crossorigin="anonymous" integrity="sha384-rjv1AW8GhdjubDixtbqmu/Q749bW7K3lv3EJmSH7rV1SRcHFyBNWlUaEF93YlEyr"><link rel="preload" href="/nfc_app-63b16bf5cd8ead98_bg.wasm" crossorigin="anonymous" integrity="sha384-mO4hLyVLKmaVTSOHGoHDxw1/Y/8p4JHm6OX5HHnbpEaM54Q8ijtvF9l07Kz+JVbI" as="fetch" type="application/wasm"></head>
 <body>
-    <script type="module">
-        import init from './nfc_app.js';
-        init();
-    </script>
+    <script type="module" src="nfc.js"></script>
 
 <script type="module">
-import init, * as bindings from '/nfc_app-f8f4eaae52f8e712.js';
-const wasm = await init({ module_or_path: '/nfc_app-f8f4eaae52f8e712_bg.wasm' });
+import init, * as bindings from '/nfc_app-63b16bf5cd8ead98.js';
+const wasm = await init({ module_or_path: '/nfc_app-63b16bf5cd8ead98_bg.wasm' });
 
 
 window.wasmBindings = bindings;

@@ -1,22 +1,20 @@
 export function start_nfc(callback) {
-    if (!("NDEFReader" in window)) {
-        console.warn("Web NFC is not supported.");
-        return;
-    }
-
-    const reader = new NDEFReader();
-    reader.scan().then(() => {
-        reader.onreading = event => {
-            for (const record of event.message.records) {
-                if (record.recordType === "url" || record.recordType === "text") {
-                    const decoder = new TextDecoder();
-                    const text = decoder.decode(record.data);
-                    callback(text);
+    if ('NDEFReader' in window) {
+        const reader = new NDEFReader();
+        reader.scan().then(() => {
+            reader.onreading = (event) => {
+                for (const record of event.message.records) {
+                    if (record.recordType === "text") {
+                        record.data = record.data || record.data || new TextDecoder().decode(record.data);
+                        callback(record.data || "");
+                    }
                 }
-            }
-        };
-    }).catch(err => {
-        console.error("NFC error:", err);
-    });
+            };
+        }).catch(error => {
+            console.error("NFC scan failed to start:", error);
+        });
+    } else {
+        console.warn("Web NFC not supported on this device or browser.");
+    }
 }
 
